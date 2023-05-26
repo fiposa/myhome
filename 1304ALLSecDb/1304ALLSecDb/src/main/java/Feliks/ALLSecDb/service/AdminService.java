@@ -1,4 +1,4 @@
-package Feliks.ALLSecDb.Service;
+package Feliks.ALLSecDb.service;
 
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Service;

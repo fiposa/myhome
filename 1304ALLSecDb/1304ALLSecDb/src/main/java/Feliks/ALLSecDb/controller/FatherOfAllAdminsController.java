@@ -1,17 +1,15 @@
-package Feliks.ALLSecDb.Controller;
+package Feliks.ALLSecDb.controller;
 
-import Feliks.ALLSecDb.Model.User;
-import Feliks.ALLSecDb.Repository.UserRepository;
-import Feliks.ALLSecDb.Service.SendEmailService;
-import Feliks.ALLSecDb.Utils.PersonNotCreatedException;
+import Feliks.ALLSecDb.model.User;
+import Feliks.ALLSecDb.repository.UserRepository;
+import Feliks.ALLSecDb.service.SendEmailService;
+import Feliks.ALLSecDb.utils.PersonNotCreatedException;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.security.core.context.SecurityContextHolder;
-import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.FieldError;

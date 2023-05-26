@@ -1,10 +1,8 @@
-package Feliks.ALLSecDb.Controller;
+package Feliks.ALLSecDb.controller;
 
-import Feliks.ALLSecDb.Model.SecurityUser;
-import Feliks.ALLSecDb.Model.User;
-import Feliks.ALLSecDb.Repository.UserRepository;
-import Feliks.ALLSecDb.Service.AdminService;
-import Feliks.ALLSecDb.Service.SendEmailService;
+import Feliks.ALLSecDb.model.User;
+import Feliks.ALLSecDb.repository.UserRepository;
+import Feliks.ALLSecDb.service.SendEmailService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.security.core.Authentication;
@@ -12,10 +10,9 @@ import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
-import java.util.Optional;
 
 @RestController
-@RequestMapping
+//@RequestMapping
 public class UserController {
 
     //SecurityUser securityUser;
@@ -71,6 +68,7 @@ public class UserController {
        System.out.println(currentUserName);
        User currentUser =  userRepository.findUserByUsername(currentUserName).orElseThrow();
        System.out.println(currentUser.getEmail());
+       System.out.println(userRepository.findUserByUsername(currentUserName).get().getEmail());// get() позволяет не создавать изера, а получить чтото из опшионал.
        sendEmailService.sendEmail(currentUser.getEmail(),"Dear "+currentUser.getUsername()+" !!!", "You are logged in");
        return "Hello, User! Check your mailbox!";
        //TODO Поискать, как выковырять емайл из контекста, чтоб не искать в базе по имени.

@@ -1,6 +1,6 @@
-package Feliks.ALLSecDb.Config;
+package Feliks.ALLSecDb.config;
 
-import Feliks.ALLSecDb.Service.MyUserDetailsService;
+import Feliks.ALLSecDb.service.MyUserDetailsService;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.method.configuration.EnableMethodSecurity;

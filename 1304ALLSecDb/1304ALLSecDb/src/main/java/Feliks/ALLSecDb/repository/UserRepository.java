@@ -1,12 +1,8 @@
-package Feliks.ALLSecDb.Repository;
+package Feliks.ALLSecDb.repository;
 
-import Feliks.ALLSecDb.Model.User;
+import Feliks.ALLSecDb.model.User;
 import jakarta.transaction.Transactional;
-import org.springframework.boot.autoconfigure.domain.EntityScan;
-import org.springframework.context.annotation.ComponentScan;
-import org.springframework.data.domain.Example;
 import org.springframework.data.jpa.repository.JpaRepository;
-import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;

@@ -1,4 +1,4 @@
-package Feliks.ALLSecDb.Config;
+package Feliks.ALLSecDb.config;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

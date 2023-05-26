@@ -1,21 +1,27 @@
-package Feliks.ALLSecDb.Model;
+package Feliks.ALLSecDb.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotBlank;
-
-import java.util.List;
+import org.springframework.stereotype.Component;
 
 @Entity
-@Table(name = "room")
+@Component //без этой аннотации не создастся бин!!!!
+@JsonIgnoreProperties (ignoreUnknown = true) //Чтоб не уходил в ошибку при появлении непонятных полей
+
+
+@Table(name = "room")//можно не указывать, тогда будет дефолтное название
 public class Room {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "room_id")
-    private int room_id;
+    @Column(name = "id")
+    private int id;
 
     @Column(name = "room_name")
     @NotBlank
     private String roomName;
+
+    ///@JsonView(View.User.class) Можем скрыть видимость некоторых параметров для некоторых пользователей
 
     @Column(name = "co2_level_fact")
     private int co2LevelFact;
@@ -30,34 +36,28 @@ public class Room {
     private boolean valvesAreOpen;
 
 
-    @ManyToOne @JoinTable(
-            name = "house_room",
-            joinColumns = @JoinColumn (name = "house_id"),
-            inverseJoinColumns = @JoinColumn(name = "room_id")
-    )
-    private House house;
+    @ManyToOne (fetch = FetchType.LAZY)
 
+    private Recuperator recuperator;
 
-    public Room(String roomName, int co2LevelFact, int co2LevelMin, int co2LevelMax,
-                boolean valvesAreOpen) {
+    public Room(String roomName, int co2LevelFact, int co2LevelMin, int co2LevelMax, boolean valvesAreOpen, Recuperator recuperator) {
         this.roomName = roomName;
         this.co2LevelFact = co2LevelFact;
         this.co2LevelMin = co2LevelMin;
         this.co2LevelMax = co2LevelMax;
         this.valvesAreOpen = valvesAreOpen;
-
-
+        this.recuperator = recuperator;
     }
 
     public Room() {
     }
 
-    public int getRoom_id() {
-        return room_id;
+    public int getId() {
+        return id;
     }
 
-    public void setRoom_id(int room_id) {
-        this.room_id = room_id;
+    public void setId(int id) {
+        this.id = id;
     }
 
     public String getRoomName() {
@@ -100,24 +100,11 @@ public class Room {
         this.valvesAreOpen = valvesAreOpen;
     }
 
-    public House getHouse() {
-        return house;
+    public Recuperator getRecuperator() {
+        return recuperator;
     }
 
-    public void setHouse(House house) {
-        this.house = house;
-    }
-
-    @Override
-    public String toString() {
-        return "Room{" +
-                "room_id=" + room_id +
-                ", roomName='" + roomName + '\'' +
-                ", co2LevelFact=" + co2LevelFact +
-                ", co2LevelMin=" + co2LevelMin +
-                ", co2LevelMax=" + co2LevelMax +
-                ", valvesAreOpen=" + valvesAreOpen +
-
-                '}';
+    public void setRecuperator(Recuperator recuperator) {
+        this.recuperator = recuperator;
     }
 }

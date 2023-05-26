@@ -1,7 +1,7 @@
-package Feliks.ALLSecDb.Service;
+package Feliks.ALLSecDb.service;
 
-import Feliks.ALLSecDb.Model.SecurityUser;
-import Feliks.ALLSecDb.Repository.UserRepository;
+import Feliks.ALLSecDb.model.SecurityUser;
+import Feliks.ALLSecDb.repository.UserRepository;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;

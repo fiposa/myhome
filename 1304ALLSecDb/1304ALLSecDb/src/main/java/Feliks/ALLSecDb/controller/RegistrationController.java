@@ -1,6 +1,6 @@
-package Feliks.ALLSecDb.Controller;
+package Feliks.ALLSecDb.controller;
 
-import Feliks.ALLSecDb.Service.SendEmailService;
+import Feliks.ALLSecDb.service.SendEmailService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.web.bind.annotation.RequestMapping;

@@ -1,4 +1,4 @@
-package Feliks.ALLSecDb.Utils;
+package Feliks.ALLSecDb.utils;
 
 public class PersonNotCreatedException extends RuntimeException{
 
