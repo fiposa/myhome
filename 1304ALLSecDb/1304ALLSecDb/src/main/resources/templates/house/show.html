@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en"xmlns:th="http://thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Welcome concrete House page!</title>
+</head>
+<body>
+<p>
+    A CONCRETE HOUSE!
+</p>
+
+<p>
+    Переменная  house создается в модели контроллера
+</p>
+
+
+<p th:text="'Name of the house: '+ ${house.getHouseName()}">VALUE</p>
+<p th:text= "'Id of the house:  ' + ${house.getId()}">VALUE</p>
+<p th:text="'Address of the house:  '+ ${house.getAddress()}">VALUE</p>
+
+</body>
+</html>
