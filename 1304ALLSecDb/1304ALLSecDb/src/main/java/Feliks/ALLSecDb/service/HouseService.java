@@ -17,12 +17,12 @@ public class HouseService {
         this.houseRepository = houseRepository;
     }
 
-    public List<House> viewAllHouses (){
+    public List<House> findAll (){
         return houseRepository.findAll();
     }
 
     public House showConcreteHouse(int id) {
-        return viewAllHouses().stream().filter(house -> house.getId()==id).findAny().orElse(null);
+        return findAll().stream().filter(house -> house.getId()==id).findAny().orElse(null);
 
     }
 

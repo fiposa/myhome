@@ -13,7 +13,7 @@
 Переменная houses создается в модели в контроллере, а тут перебирается, создавая локальную переменную house
 </p>
 <div th:each="house : ${houses}">
-    <a th:href="@{/house/{id}(id=${house.getId()})}" th:text="${house.getHouseName()}">house</a>
+    <a th:href="@{/house/{id}(id=${house.getId()})}" th:text="${house.getName()}">house</a>
 </div>
 <a href = "/house/create">Create new house</a> or <a href = "/exit">Exit button</a>
 

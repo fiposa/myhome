@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en"xmlns:th="http://thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Welcome to all the gates page!</title>
+</head>
+<body>
+<p>
+    A LIST OF ALL GATES!
+</p>
+
+<p>
+    Переменная houses создается в модели в контроллере, а тут перебирается, создавая локальную переменную house
+</p>
+<div th:each="gate : ${gates}">
+    <a th:href="@{/gates/{id}(id=${gate.getId()})}" th:text="${gate.getGateName()}">gate</a>
+</div>
+<a href = "/gates/new">Create new gate</a> or <a href = "/exit">Exit button</a>
+
+
+</body>
+</html>

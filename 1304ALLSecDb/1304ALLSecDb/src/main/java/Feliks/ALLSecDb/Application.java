@@ -1,7 +1,10 @@
 package Feliks.ALLSecDb;
 
+import Feliks.ALLSecDb.model.Gate;
+import Feliks.ALLSecDb.model.House;
 import Feliks.ALLSecDb.model.Room;
 import Feliks.ALLSecDb.model.User;
+import Feliks.ALLSecDb.repository.GatesRepository;
 import Feliks.ALLSecDb.repository.HouseRepository;
 import Feliks.ALLSecDb.repository.RoomRepository;
 import Feliks.ALLSecDb.repository.UserRepository;
@@ -25,8 +28,22 @@ public class Application {
 
 	@Bean
 	CommandLineRunner commandLineRunner(UserRepository users, PasswordEncoder encoder,
-										HouseRepository houseRepository, RoomRepository roomRepository) {
+										HouseRepository houseRepository, RoomRepository roomRepository,
+										GatesRepository gatesRepository) {
 		return args -> {
+
+//			houseRepository.save(new House("House1",null,
+//					"Pervomayka917", null,null));
+//			houseRepository.save(new House("House2",null,
+//					"Lenina525", null,null));
+
+			/*gatesRepository.save(new Gate("Vrata1",false,
+					houseRepository.findById(1).orElse(null) ));
+
+			gatesRepository.save(new Gate("Vrata2",true,
+					houseRepository.findById(2).orElse(null) ));*/
+
+
 
 			//Если написать не ROLE_ADMIN, а ADMIN, то не будет работать, и в юзере поле д.б. именно role, а не roles
 

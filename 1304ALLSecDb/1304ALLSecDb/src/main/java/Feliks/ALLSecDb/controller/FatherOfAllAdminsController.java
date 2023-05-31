@@ -30,6 +30,8 @@ public class FatherOfAllAdminsController {
 
     private final PasswordEncoder passwordEncoder;//заинжектили энкодер в этот класс, добавили в конструктор
 
+
+   @Autowired
     public FatherOfAllAdminsController(UserRepository userRepository, PasswordEncoder passwordEncoder) {
         this.userRepository = userRepository;
         this.passwordEncoder = passwordEncoder;
@@ -58,7 +60,7 @@ public class FatherOfAllAdminsController {
     @GetMapping("allAdmins")//Выводим список всех админов.
     public List<User> viewAllAdmins() {
         return userRepository.findAll().stream().filter(user -> user.getRole()
-                .toString().equals("ROLE_ADMIN")).collect(Collectors.toList());
+                .equals("ROLE_ADMIN")).collect(Collectors.toList());
     }
 
     @GetMapping("all")//Выводим список всех пользователей из базы

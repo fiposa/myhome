@@ -19,25 +19,26 @@ public class HouseCotroller {
 
     private final HouseService houseService;
     @Autowired
+
     public HouseCotroller(HouseService houseService) {
         this.houseService = houseService;
     }
     @GetMapping("/house/")
     public String index(Model model) {
-        model.addAttribute("houses", houseService.viewAllHouses());
+        model.addAttribute("houses", houseService.findAll());
         System.out.println("should have seen houses page.");
 
         return "house/index";
     }
 
-    @PreAuthorize("hasAnyRole('USER','ADMIN')")
+    //@PreAuthorize("hasAnyRole('USER','ADMIN')")
     @GetMapping("/house/{id}")
     public String show(@PathVariable("id") int id, Model model) {
         model.addAttribute("house", houseService.showConcreteHouse(id));
         return "/house/show";
     }
 
-    @PreAuthorize("hasRole('ADMIN')")
+    //@PreAuthorize("hasRole('ADMIN')")
     @GetMapping("/house/create")
     public String create (){
         return "/house/create";

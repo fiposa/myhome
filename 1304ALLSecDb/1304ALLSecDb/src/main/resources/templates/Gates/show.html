@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en"xmlns:th="http://thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Welcome concrete House page!</title>
+</head>
+<body>
+<p>
+    A CONCRETE gate!
+</p>
+
+<p>
+    Переменная  gate создается в модели контроллера
+</p>
+
+
+<p th:text="'Name of the gate: '+ ${gate.getGateName()}">VALUE</p>
+<p th:text= "'Id of the gate:  ' + ${gate.getId()}">VALUE</p>
+<p th:text="'Is gate open:  '+ ${gate.isGateOpen}">VALUE</p>
+<p th:text="'Name of the house: '+ ${gate.getHouse.getName}">VALUE</p>
+
+</body>
+</html>

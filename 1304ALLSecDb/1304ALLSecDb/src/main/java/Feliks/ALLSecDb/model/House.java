@@ -16,18 +16,18 @@ public class House {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
-    @Column (name = "house_name")
-    @NotBlank
-    private String houseName;
+    @Column (name = "name")
+    //@NotBlank
+    private String name;
 
 
-    @NotBlank
+    //@NotBlank
     @ManyToOne
     private User user;
 
 
     @Column (name = "address")
-    @NotBlank
+    //@NotBlank
     private String address;
 
     @OneToOne (cascade = CascadeType.ALL)
@@ -40,8 +40,8 @@ public class House {
     public House() {
     }
 
-    public House(String houseName, User user, String address, Recuperator recuperator, List<Gate> gates) {
-        this.houseName = houseName;
+    public House(String name, User user, String address, Recuperator recuperator, List<Gate> gates) {
+        this.name = name;
         this.user = user;
         this.address = address;
         this.recuperator = recuperator;
@@ -56,12 +56,12 @@ public class House {
         this.id = id;
     }
 
-    public String getHouseName() {
-        return houseName;
+    public String getName() {
+        return name;
     }
 
-    public void setHouseName(String houseName) {
-        this.houseName = houseName;
+    public void setName(String name) {
+        this.name = name;
     }
 
     public User getUser() {
@@ -94,5 +94,17 @@ public class House {
 
     public void setGates(List<Gate> gates) {
         this.gates = gates;
+    }
+
+    @Override
+    public String toString() {
+        return "House{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", user=" + user +
+                ", address='" + address + '\'' +
+                ", recuperator=" + recuperator +
+                ", gates=" + gates +
+                '}';
     }
 }

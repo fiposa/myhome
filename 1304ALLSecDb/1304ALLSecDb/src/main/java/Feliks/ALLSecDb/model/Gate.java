@@ -65,4 +65,6 @@ public class Gate {
     public void setHouse(House house) {
         this.house = house;
     }
+
+
 }
